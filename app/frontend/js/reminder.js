@@ -17,6 +17,8 @@ document.addEventListener("turbolinks:load", () => {
       }
     }
   });
+  $('#data-range').html(moment(calendar._renderRange.start._date).format('YYYY-MM-DD') + ' - ' + moment(calendar._renderRange.end._date).format('YYYY-MM-DD'))
+
 
   //CLICK date to create schedule
   calendar.on('beforeCreateSchedule', function (event) {
@@ -56,6 +58,8 @@ document.addEventListener("turbolinks:load", () => {
     } else {
       calendar.today();
     }
+    $('#data-range').html(moment(calendar._renderRange.start._date).format('YYYY-MM-DD') + ' - ' + moment(calendar._renderRange.end._date).format('YYYY-MM-DD'))
+    
   }
 
   //Cancel modal = Clear Form.

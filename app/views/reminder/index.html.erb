@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 text-center text-md-start">
+    <div class="col-md-4 text-center text-md-start">
       <button type="button" class="btn btn-primary" onclick="actionCalendar();">Today</button>
       <button type="button" class="btn btn-primary" onclick="actionCalendar('prev');">< Prev</button>
       <button type="button" class="btn btn-primary" onclick="actionCalendar('next');">Next ></button>
     </div>
-    <div class="col-md-6 text-center text-md-end">
+    <div class="col-md-4 text-center d-flex align-items-center justify-content-center">
+      <span id="data-range"></span>
+    </div>
+    <div class="col-md-4 text-center text-md-end">
       <button type="button" class="btn btn-primary" id="btn-modal" data-bs-toggle="modal" data-bs-target="#modalReminder">New reminder</button>
     </div>
     <div class="col-md-12 mt-4">
