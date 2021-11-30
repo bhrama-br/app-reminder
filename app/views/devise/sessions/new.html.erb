@@ -1,0 +1,33 @@
+<div class="col-12 col-md-4 mx-auto text-center row-sign bg-white">
+  <img src="/images/logo.png" alt="" class="img-fluid mb-4" width="250">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+    <div class="field">
+      <%= f.email_field :email, placeholder:'Email', autofocus: true, autocomplete: "email", class:"form-control mb-3" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, placeholder:'Password', autocomplete: "current-password", class:"form-control" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field text-end">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions mb-3">
+      <%= f.submit "Log in", class:"btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</div>

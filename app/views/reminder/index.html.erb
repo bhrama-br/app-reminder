@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 text-center text-md-start">
+      <button type="button" class="btn btn-primary" onclick="actionCalendar();">Today</button>
+      <button type="button" class="btn btn-primary" onclick="actionCalendar('prev');">< Prev</button>
+      <button type="button" class="btn btn-primary" onclick="actionCalendar('next');">Next ></button>
+    </div>
+    <div class="col-md-6 text-center text-md-end">
+      <button type="button" class="btn btn-primary" id="btn-modal" data-bs-toggle="modal" data-bs-target="#modalReminder">New reminder</button>
+    </div>
+    <div class="col-md-12 mt-4">
+      <div id="calendar"></div>
+    </div>  
+  </div> 
+</div>
+
+<!-- Modal new Schedule -->
+<div class="modal fade" id="modalReminder" tabindex="-1" aria-labelledby="modalReminderLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalReminderLabel">New Reminder</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 errors-request">
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="text">Reminder:</label>
+            <textarea class="form-control" type="text" id="text" name="reminder[text]" maxlength="30" required></textarea>
+          </div>
+          <div class="col-md-6 col-12">
+            <label for="startDate">Start Date:</label>
+            <input class="form-control" type="datetime-local" id="startDate" name="reminder[startDate]" required>
+          </div>
+          <div class="col-md-6 col-12">
+            <label for="endDate">End Date:</label>
+            <input class="form-control" type="datetime-local" id="endDate" name="reminder[endDate]" required>
+          </div>
+          
+          <div class="col-md-6 col-12">
+            <label for="color">Color Reminder:</label>
+            <input class="form-control" type="color" id="color" name="reminder[color]" style="width: 40px;" required></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModalPost" data-bs-dismiss="modal" onClick="cancelModal()">Cancel</button>
+        <button type="button" class="btn btn-primary" onClick="createReminder()">Create schedule</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal update Schedule -->
+<button id="openUpdateModal" data-bs-toggle="modal" data-bs-target="#modalUpdateReminder">-</button>
+<div class="modal fade" id="modalUpdateReminder" tabindex="-1" aria-labelledby="modalUpdateReminderLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalUpdateReminderLabel">Update Reminder</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 errors-request">
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="text">Reminder:</label>
+            <textarea class="form-control" type="text" id="text" name="reminder[text]" maxlength="30" required></textarea>
+          </div>
+          <div class="col-md-6 col-12">
+            <label for="startDate">Start Date:</label>
+            <input class="form-control" type="datetime-local" id="startDate" name="reminder[startDate]" required>
+          </div>
+          <div class="col-md-6 col-12">
+            <label for="endDate">End Date:</label>
+            <input class="form-control" type="datetime-local" id="endDate" name="reminder[endDate]" required>
+          </div>
+          
+          <div class="col-md-6 col-12">
+            <label for="color">Color Reminder:</label>
+            <input class="form-control" type="color" id="color" name="reminder[color]" style="width: 40px;" required></textarea>
+          </div>
+          <input type="hidden" id="id">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onClick="deleteUpdateModal()">Delete</button>
+        <button type="button" class="btn btn-secondary closeModalUpdatePost" data-bs-dismiss="modal" onClick="cancelUpdateModal()">Cancel</button>
+        <button type="button" class="btn btn-primary" onClick="updateReminder()">Update schedule</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){    
+    getReminder();
+  })
+</script>

@@ -1,0 +1,82 @@
+$primary-color: #55b3f3;
+$primary-color-hover: #1983ca;
+$bg-sign: "/images/bg-sign.jpg";
+
+.bg-sign{
+    background: url($bg-sign) no-repeat fixed center;
+    background-size: cover;
+}
+.bg-white{
+    background: #fff;
+}
+.bg-primary{
+    background: $primary-color !important;
+    color: #fff;
+}
+.btn-primary{
+    background: $primary-color;
+    border-color: $primary-color;
+    &:hover{
+        background: $primary-color-hover;
+    }
+}
+
+.title-error{
+    font-weight: 500;
+    color: red;
+}
+
+.btn-links{
+    a{
+        color: $primary-color;
+        font-size: 13px;
+        font-weight: 500;
+        &:hover{
+            color: $primary-color-hover;
+        }
+    }
+}
+#openUpdateModal{
+    position: absolute;
+    z-index: -9999;
+    background: transparent;
+    border: transparent;
+    color: transparent;
+}
+.tui-full-calendar-weekday-schedule-bullet{
+    display: none;
+}
+.row-sign{
+    border-radius: 8px;
+    padding: 15px;
+}
+
+#loading {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: 9999999;
+    background: #000000b3;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+    &.show{
+        display: flex;
+    }
+}
+
+p.title-copy{
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0;
+}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+ }
